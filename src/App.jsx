@@ -1,12 +1,16 @@
 import React from 'react'
-import Title from './Title'
-import Navbar from './Navbar'
+import Title from './components/Title'
+import Navbar from './layout/Navbar'
 
 import {
 	Route,
 	Routes,
 	BrowserRouter
 } from "react-router-dom";
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Profile from './pages/Profile';
+
 
 export const ROUTES = {
 	HOME: "/",
@@ -18,13 +22,12 @@ export const ROUTES = {
 const App = () => {
 	return <>
 		<BrowserRouter>
-
 			<Navbar />
 
 			<Routes>
-				<Route path={ROUTES.HOME} element={<Title text={"Home"} />} />
-				<Route path={ROUTES.PRODUCTS} element={<Title text={"Products"} />} />
-				<Route path={ROUTES.PROFILE} element={<Title text={"Profile"} />} />
+				<Route path={ROUTES.HOME} element={<Home />} />
+				<Route path={ROUTES.PRODUCTS} element={<Products />} />
+				<Route path={ROUTES.PROFILE} element={<Profile />} />
 				<Route path="*" element={<Title text={"not found"} />} />
 			</Routes>
 		</BrowserRouter>
