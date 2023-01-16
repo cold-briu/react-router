@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Product from './pages/Product';
 import Profile from './pages/Profile';
 
 
@@ -26,7 +27,10 @@ const App = () => {
 
 			<Routes>
 				<Route path={ROUTES.HOME} element={<Home />} />
-				<Route path={ROUTES.PRODUCTS} element={<Products />} />
+				<Route path={ROUTES.PRODUCTS} element={<Products />} >
+					<Route path=":id" element={<Product />} />
+
+				</Route>
 				<Route path={ROUTES.PROFILE} element={<Profile />} />
 				<Route path="*" element={<Title text={"not found"} />} />
 			</Routes>
